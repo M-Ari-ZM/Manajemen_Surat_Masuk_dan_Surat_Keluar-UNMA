@@ -40,10 +40,10 @@
         <i class="fas fa-user-circle"></i> <?= $_SESSION['nama']; ?>
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdownProfile">
-        <a class="dropdown-item" href="profil.php">Profil</a>
-        <a class="dropdown-item" href="profil.php?edit=1">Ubah Password</a>
+        <a class="dropdown-item" href="<?= $base_url ?>modules/master/profile/profil.php">Profil</a>
+        <a class="dropdown-item" href="<?= $base_url ?>modules/master/profile/profil.php?edit=1">Ubah Password</a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="logout.php">Logout</a>
+        <a class="dropdown-item" href="<?= $base_url ?>modules/auth/logout.php">Logout</a>
     </div>
 </li>
 

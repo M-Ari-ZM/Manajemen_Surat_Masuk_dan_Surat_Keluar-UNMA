@@ -28,10 +28,10 @@ session_start();
         }
 
          if(!isset($_SESSION['status']) || $_SESSION['status'] != "login"){
-    header("Location: login.php?info=login");
+    header("Location: modules/auth/login.php?info=login");
     exit();
 }
-          include 'koneksi.php';
+          include 'config/koneksi.php';
           include 'layouts/header.php';
           include 'layouts/navbar.php';
           include 'layouts/sidebar.php';
@@ -91,17 +91,17 @@ session_start();
           <!-- Cards -->
        <?php
         $cards = [
-          ['title' => 'Jumlah Surat Masuk', 'icon' => 'fas fa-envelope', 'count' => $count1, 'link' => 'jumlah_surat_masuk.php'],
-          ['title' => 'Jumlah Surat Keluar', 'icon' => 'fas fa-envelope-open', 'count' => $count2, 'link' => 'jumlah_surat_keluar.php'],
-          ['title' => 'Disposisi', 'icon' => 'fas fa-book', 'count' => $count3, 'link' => 'disposisi.php'],
-          ['title' => 'Klasifikasi Surat', 'icon' => 'fas fa-book-open', 'count' => $count4, 'link' => 'klasifikasi.php'],
+          ['title' => 'Jumlah Surat Masuk', 'icon' => 'fas fa-envelope', 'count' => $count1, 'link' => $base_url . 'modules/surat_masuk/jumlah_surat_masuk.php'],
+          ['title' => 'Jumlah Surat Keluar', 'icon' => 'fas fa-envelope-open', 'count' => $count2, 'link' => $base_url . 'modules/surat_keluar/jumlah_surat_keluar.php'],
+          ['title' => 'Disposisi', 'icon' => 'fas fa-book', 'count' => $count3, 'link' => $base_url . 'modules/disposisi/disposisi.php'],
+          ['title' => 'Klasifikasi Surat', 'icon' => 'fas fa-book-open', 'count' => $count4, 'link' => $base_url . 'modules/master/klasifikasi/klasifikasi.php'],
         ];
 
         if ($_SESSION['id_user'] == 1 || $_SESSION['admin'] == 2) {
-          $cards[] = ['title' => 'Kumpulan SK', 'icon' => 'fas fa-book-open', 'count' => $count6, 'link' => 'rektorat.php'];
-            $cards[] = ['title' => 'Pengguna', 'icon' => 'fas fa-users', 'count' => $count5, 'link' => 'pengguna.php'];
-            $cards[] = ['title' => 'Rekap Surat Masuk', 'icon' => 'fas fa-bookmark', 'count' => $count1, 'link' => 'rekapsm.php'];
-            $cards[] = ['title' => 'Rekap Surat Keluar', 'icon' => 'fas fa-bookmark', 'count' => $count2, 'link' => 'rekapsk.php'];
+          $cards[] = ['title' => 'Kumpulan SK', 'icon' => 'fas fa-book-open', 'count' => $count6, 'link' => $base_url . 'modules/sk/rektorat.php'];
+            $cards[] = ['title' => 'Pengguna', 'icon' => 'fas fa-users', 'count' => $count5, 'link' => $base_url . 'modules/master/user/pengguna.php'];
+            $cards[] = ['title' => 'Rekap Surat Masuk', 'icon' => 'fas fa-bookmark', 'count' => $count1, 'link' => $base_url . 'modules/surat_masuk/rekapsm.php'];
+            $cards[] = ['title' => 'Rekap Surat Keluar', 'icon' => 'fas fa-bookmark', 'count' => $count2, 'link' => $base_url . 'modules/surat_keluar/rekapsk.php'];
         }
 
         foreach ($cards as $card) {
