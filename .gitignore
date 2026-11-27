@@ -1,0 +1,17 @@
+/vendor/
+/upload/*
+!/upload/.gitkeep
+/backup/*
+!/backup/.gitkeep
+*.sql.gz
+*.tar.gz
+koneksi.php
+.env
+.env.local
+*.log
+error_log
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+.DS_Store
